@@ -6,12 +6,12 @@ import "./Styles.css";
 const resizeUrl = "https://news.theonlinekenyan.com/uploads/news_images/";
 
 const playVideo = (videoID, videoLink) => {
+  document.getElementById(videoID).parentElement.firstChild.style.display =
+    "none";
   document.getElementById(videoID).style.display = "block";
 
   let iframe = document.createElement("iframe");
-  iframe.src = `https://youtube.com/embed/${videoLink
-    .split("=")
-    .pop()}?autoplay=1`;
+  iframe.src = `https://youtube.com/embed/${videoLink.split("=").pop()}`;
   iframe.width = 400;
   iframe.height = 300;
   iframe.title = videoLink;
