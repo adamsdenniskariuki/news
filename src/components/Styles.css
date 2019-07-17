@@ -1,0 +1,19 @@
+.VideoButton {
+  text-decoration: "none";
+  color: blue;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.VideoButton:active {
+  color: gray;
+}
+
+.VideoButton:visited {
+  color: black;
+}
+
+.Hidden {
+  display: none;
+}

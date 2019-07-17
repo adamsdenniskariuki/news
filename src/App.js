@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { fetchVideos } from "./api/index";
+import { Videos } from "./components/index";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      videos: []
+    };
+  }
+
+  async componentDidMount() {
+    const videos = await fetchVideos();
+    this.setState({ videos });
+  }
+  render() {
+    const { videos } = this.state;
+
+    if (videos && videos.data && videos.data.Data.length > 0) {
+      return <Videos videos={videos.data.Data} />;
+    }
+    return <div className="App">Loading...</div>;
+  }
 }
 
 export default App;
