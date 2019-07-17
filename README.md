@@ -1,5 +1,7 @@
 ### Instructions
 
+- API: https://news.theonlinekenyan.com/api/stories/video
+
 - The home page/view should have a listing of all news items
 
 #### Each news video items should have
